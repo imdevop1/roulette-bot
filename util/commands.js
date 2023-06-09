@@ -44,7 +44,7 @@ export default async function (bot, interaction, type = "slash", settings) {
         color: 0xe4f000,
         description: `__**اللاعبين:**__\nلا يوجد لاعبين مشاركين باللعبة`,
         fields: [{
-          name: "__طريقة اللاعب:__",
+          name: "__طريقة اللاعب Dev OP .:__",
           value: `**1-** انضم في اللعبة
             **2-** ستبدأ الجولة الأولى وسيتم تدوير العجلة واختيار لاعب عشوائي
             **3-** إذا كنت اللاعب المختار ، فستختار لاعبًا من اختيارك ليتم طرده من اللعبة
@@ -102,7 +102,7 @@ export default async function (bot, interaction, type = "slash", settings) {
         await mm_2.edit({ components: mm_2.components }).catch(() => { });
       } else if (data[0] == "join") {
         let roulette_data = roulette_games.get(i.guildID)
-        if (roulette_data.players.length >= 40) return await i.createMessage({ flags: 64, content: "عدد المشاركين مكتمل" })
+        if (roulette_data.players.length >= 20) return await i.createMessage({ flags: 64, content: "عدد المشاركين مكتمل" })
         if (roulette_data.players[0] && roulette_data.players.some(player => player.id == i.member.id)) return await i.createMessage({ flags: 64, content: "انت مشارك بالفعل لكي تغير مكانك يجب عليك الخروج من الروليت ثم الدخول مرة اخري" });
         await i.deferUpdate();
         if (data[1] == "random") {
